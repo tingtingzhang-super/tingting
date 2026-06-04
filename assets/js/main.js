@@ -14,6 +14,7 @@
     nav: {
       work:    { zh: "作品", en: "Work" },
       about:   { zh: "关于", en: "About" },
+      resume:  { zh: "简历", en: "Résumé" },
       contact: { zh: "联系", en: "Contact" },
     },
     hero: { cue: { zh: "向下浏览", en: "Scroll" } },
