@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="作品集 · Portfolio" />
+  <title>作品集 · Portfolio</title>
+
+  <!-- 字体：Latin 用 Fraunces（优雅衬线）作为标题，正文用系统字体。
+       离线或加载失败时自动回退到系统字体，不影响使用。 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- 顶部滚动进度条 -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- 导航 -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__brand" data-bind="brand"></a>
+    <nav class="nav__menu" aria-label="主导航">
+      <a href="#work" data-bind="nav.work"></a>
+      <a href="#about" data-bind="nav.about"></a>
+      <a href="#contact" data-bind="nav.contact"></a>
+    </nav>
+    <div class="nav__actions">
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="切换语言"></button>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="切换深浅色">
+        <span class="theme-toggle__icon" aria-hidden="true"></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" id="hero">
+      <p class="hero__eyebrow reveal" data-bind="hero.eyebrow"></p>
+      <h1 class="hero__headline reveal" data-bind="hero.headline"></h1>
+      <p class="hero__summary reveal" data-bind="hero.summary"></p>
+      <a class="hero__cue reveal" href="#work" aria-label="向下滚动">
+        <span data-bind="hero.cue"></span>
+        <span class="hero__cue-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- 精选作品 -->
+    <section class="section" id="work">
+      <h2 class="section__title reveal" data-bind="workLabel"></h2>
+      <div class="work" id="workList"><!-- JS 渲染 --></div>
+    </section>
+
+    <!-- 关于 -->
+    <section class="section section--about" id="about">
+      <h2 class="section__title reveal" data-bind="about.label"></h2>
+      <div class="about">
+        <aside class="about__facts" id="aboutFacts"><!-- JS 渲染 --></aside>
+        <div class="about__body" id="aboutBody"><!-- JS 渲染 --></div>
+      </div>
+    </section>
+
+    <!-- 工作方式 -->
+    <section class="section" id="approach">
+      <h2 class="section__title reveal" data-bind="approach.label"></h2>
+      <p class="approach__intro reveal" data-bind="approach.intro"></p>
+      <div class="approach" id="approachList"><!-- JS 渲染 --></div>
+    </section>
+
+    <!-- 联系 -->
+    <section class="section section--contact" id="contact">
+      <h2 class="section__title reveal" data-bind="contact.label"></h2>
+      <p class="contact__tagline reveal" data-bind="contact.tagline"></p>
+      <a class="contact__email reveal" id="contactEmail" href="#"><!-- JS 渲染 --></a>
+      <div class="contact__links reveal" id="contactLinks"><!-- JS 渲染 --></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span data-bind="footer"></span>
+  </footer>
+
+  <!-- 内容数据（先加载），再加载逻辑 -->
+  <script src="content.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
