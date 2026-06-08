@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Callout } from "../components/Doc";
+import { Callout, SyncBadge } from "../components/Doc";
+import { figmaTokens } from "../data/figma";
 
 const features = [
   { to: "/foundations/colors", icon: "🎨", title: "颜色", desc: "品牌 / 功能 / 中性色体系" },
@@ -39,12 +40,24 @@ export function Overview() {
         </div>
       </div>
 
+      <div style={{ margin: "20px 0 0" }}>
+        <SyncBadge synced={figmaTokens.synced} />
+      </div>
       <Callout>
-        <span>
-          <b>关于本站：</b> 内容依据 Figma 文件 <code>MOOUI_Mobile_Components</code>{" "}
-          的命名与移动端通用规范整理而成的可交互规范展示站。若需与 Figma
-          逐像素同步精确数值，可在云端环境配置 <code>FIGMA_TOKEN</code> 后由组件数据自动回填。
-        </span>
+        {figmaTokens.synced ? (
+          <span>
+            <b>已与 Figma 同步：</b> 颜色与文字数据取自源文件{" "}
+            <code>MOOUI_Mobile_Components</code> 节点 <code>{figmaTokens.nodeId}</code>，
+            共 {figmaTokens.counts.colors} 个颜色、{figmaTokens.counts.typography}{" "}
+            个文本样式。详见「颜色」「文字」页面。
+          </span>
+        ) : (
+          <span>
+            <b>关于本站：</b> 当前展示的是基于 Figma 文件{" "}
+            <code>MOOUI_Mobile_Components</code> 命名与移动端通用规范整理的默认数值。要与源文件逐像素对齐，请配置{" "}
+            <code>FIGMA_TOKEN</code> 后运行 <code>npm run sync:figma</code>，颜色 / 文字将自动回填。
+          </span>
+        )}
       </Callout>
 
       <h2 className="section__title" style={{ marginTop: 36 }}>

@@ -123,3 +123,12 @@ export function Guidelines({
 export function Callout({ children }: { children: React.ReactNode }) {
   return <div className="callout">{children}</div>;
 }
+
+export function SyncBadge({ synced }: { synced: boolean }) {
+  return (
+    <span className={`sync-badge${synced ? " sync-badge--on" : ""}`}>
+      <span className="sync-badge__dot" />
+      {synced ? "已与 Figma 同步" : "未同步 · 使用默认规范"}
+    </span>
+  );
+}

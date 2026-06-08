@@ -1,4 +1,4 @@
-import { PageHead, Section, Callout } from "../components/Doc";
+import { PageHead, Section, Callout, SyncBadge } from "../components/Doc";
 import {
   colorGroups,
   typeScale,
@@ -6,6 +6,30 @@ import {
   radii,
   shadows,
 } from "../data/tokens";
+import { figmaTokens } from "../data/figma";
+
+function rgba(hex: string, opacity: number) {
+  if (opacity >= 1) return hex;
+  const n = hex.replace("#", "");
+  const r = parseInt(n.slice(0, 2), 16);
+  const g = parseInt(n.slice(2, 4), 16);
+  const b = parseInt(n.slice(4, 6), 16);
+  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+}
+
+function SyncedMeta() {
+  if (!figmaTokens.synced) return null;
+  return (
+    <p className="synced-meta">
+      数据来源：Figma 文件 <code>{figmaTokens.fileKey}</code> · 节点{" "}
+      <code>{figmaTokens.nodeId}</code>
+      {figmaTokens.nodeName ? ` (${figmaTokens.nodeName})` : ""} · 同步于{" "}
+      {figmaTokens.fetchedAt
+        ? new Date(figmaTokens.fetchedAt).toLocaleString("zh-CN")
+        : "—"}
+    </p>
+  );
+}
 
 export function Colors() {
   return (
@@ -15,6 +39,35 @@ export function Colors() {
         title="颜色 Color"
         desc="MOOUI 颜色体系由品牌色、功能色与中性色三部分组成。所有颜色均以 CSS 变量形式提供，确保跨平台一致性与可主题化能力。"
       />
+      <div style={{ marginBottom: 8 }}>
+        <SyncBadge synced={figmaTokens.synced} />
+        <SyncedMeta />
+      </div>
+      {figmaTokens.synced && figmaTokens.colors.length > 0 && (
+        <Section
+          title="从 Figma 同步的颜色"
+          hint={`共 ${figmaTokens.colors.length} 个颜色样式，直接取自源文件。`}
+        >
+          <div className="grid grid--3">
+            {figmaTokens.colors.map((c, i) => (
+              <div className="swatch" key={c.hex + i}>
+                <div
+                  className="swatch__chip"
+                  style={{ background: rgba(c.hex, c.opacity) }}
+                />
+                <div className="swatch__body">
+                  <div className="swatch__name">{c.name}</div>
+                  <div className="swatch__hex">
+                    {c.hex}
+                    {c.opacity < 1 ? ` · ${Math.round(c.opacity * 100)}%` : ""}
+                  </div>
+                  <div className="swatch__usage">来源：{c.source}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
       {colorGroups.map((g) => (
         <Section key={g.title} title={g.title} hint={g.description}>
           <div className="grid grid--3">
@@ -50,6 +103,62 @@ export function Typography() {
         title="文字 Typography"
         desc="字阶基于 4px 基线网格构建，覆盖从大标题到辅助说明的 6 个层级。中文使用 PingFang SC，英文/数字使用 SF Pro / system-ui。"
       />
+      <div style={{ marginBottom: 8 }}>
+        <SyncBadge synced={figmaTokens.synced} />
+        <SyncedMeta />
+      </div>
+      {figmaTokens.synced && figmaTokens.typography.length > 0 && (
+        <Section
+          title="从 Figma 同步的文字样式"
+          hint={`共 ${figmaTokens.typography.length} 个文本样式，直接取自源文件。`}
+        >
+          <div className="card" style={{ padding: "8px 4px" }}>
+            {figmaTokens.typography.map((t, i) => (
+              <div
+                key={t.name + i}
+                style={{
+                  display: "flex",
+                  alignItems: "baseline",
+                  gap: 24,
+                  padding: "16px 20px",
+                  borderBottom: "1px solid var(--doc-line)",
+                }}
+              >
+                <div style={{ width: 140, color: "var(--doc-muted)", fontSize: 13 }}>
+                  {t.name}
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    fontSize: t.fontSize ?? 16,
+                    lineHeight:
+                      typeof t.lineHeight === "number"
+                        ? `${t.lineHeight}px`
+                        : t.lineHeight ?? "normal",
+                    fontWeight: t.fontWeight ?? 400,
+                    color: t.color ?? "var(--moo-text-1)",
+                  }}
+                >
+                  MOOUI 移动组件 Aa
+                </div>
+                <div
+                  style={{
+                    color: "var(--doc-muted)",
+                    fontSize: 12,
+                    fontFamily: "monospace",
+                    textAlign: "right",
+                    width: 220,
+                  }}
+                >
+                  {t.fontSize ?? "—"}/{t.lineHeight ?? "—"} · w{t.fontWeight ?? "—"}
+                  <br />
+                  {t.fontFamily ?? ""}
+                </div>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
       <Section title="字阶 Type Scale">
         <div className="card" style={{ padding: "8px 4px" }}>
           {typeScale.map((t) => (
