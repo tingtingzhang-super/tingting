@@ -1,0 +1,686 @@
+{
+  "synced": true,
+  "fetchedAt": "2026-06-08T02:58:50.161Z",
+  "fileKey": "qBzMhUc16MW3vCvOBNT4SR",
+  "scope": "file",
+  "nodeId": "65811:180757",
+  "scopeName": "MOOUI_Mobile_Components",
+  "pages": [
+    "目前控件库说明，非控件库成员使用前看",
+    "━ 🌲 全局规则   ━━━━━━",
+    "━ 🌲 控件索引   ━━━━━━",
+    "━ 🌲 控件Kit   ━━━━━━",
+    "    ↪️ 导航和菜单——————————————",
+    "        导航栏 Navigation Bar ✅",
+    "        选项卡 Tab  ✅",
+    "        标题 Title ",
+    "        底部导航栏 Bottom Navbar ✅",
+    "    ↪️ 呈现方式——————————————",
+    "        弹层 Poplist ✅",
+    "        活动列表 ActionSheet  ✅",
+    "        活动视图 ActivityView ✅",
+    "        对话框 Dialog  ✅",
+    "        广告 Banner ✅",
+    "        标签 Tags ✅",
+    "        空状态 empty ✅",
+    "        指示器 Indicator ",
+    "        气泡 Popovert ✅",
+    "        编辑 Editing  ✅",
+    "        加载态 Loading ✅",
+    "        反馈 toast  ✅",
+    "        红点 Badge ✅",
+    "        公告栏 Notice Bar✅",
+    "        分享 share 👷",
+    "        进度条 progress bar✅",
+    "        图片预览 ImagePreviewer  ✅",
+    "        步骤条 Steps  ✅",
+    "    ↪️ 操作和输入——————————————",
+    "        按钮 Button ✅ 🐘",
+    "        复选框 Check box ✅",
+    "        单选框 Radio box ✅",
+    "        开关 Switch ✅",
+    "        滑杆 Slider  ✅",
+    "        筛选 Filter ✅",
+    "        日历&选择器  Calendar&Picker ✅ 🐘",
+    "        输入框 Input ✅ 🐘",
+    "        基础搜索框 Basic Search ✅",
+    "        密码输入框 Password Input ✅",
+    "        索引器 Indexes  ✅",
+    "        上传 Upload  ✅",
+    "        设置列表 Setting ✅",
+    "        下拉框 Drop-down  ✅",
+    "    ↪️ 布局和组织——————————————",
+    "        AI卡片 👷",
+    "        数据表单 Data Form  ✅",
+    "        信息表单 Information Form✅",
+    "        卡片Card ✅",
+    "        金刚区 Entrance ✅",
+    "        数据列表 DataList 👷",
+    "        时间轴 Timeline 👷",
+    "        摘要数据 Statistic 👷",
+    "        底部合规文案 Compliance ✅",
+    "        图文列表（业务控件）👷",
+    "        比例条 ✅",
+    "        信息条（业务控件）",
+    "        搜索页面 Search Page（业务控件）  ✅",
+    "        图表 Chart（业务控件）",
+    "    ↪️ 系统体验——————————————",
+    "        键盘 Keyboard ✅",
+    "        状态栏 Status bar 👷",
+    "    ↪️ 天星控件合集——————————————",
+    "        级联选择 Cascader ✅",
+    "━🧾 需求模板 ━━━━━━━━━━━",
+    "✍️ 更新日志（待移除）",
+    "封面"
+  ],
+  "counts": {
+    "colors": 676,
+    "typography": 568,
+    "pages": 66
+  },
+  "semantic": {
+    "accents": [
+      {
+        "hue": "橙 Orange",
+        "hex": "#F36F12",
+        "count": 1414
+      },
+      {
+        "hue": "青 Cyan",
+        "hex": "#00A870",
+        "count": 1389
+      },
+      {
+        "hue": "红 Red",
+        "hex": "#F03A55",
+        "count": 1073
+      },
+      {
+        "hue": "蓝 Blue",
+        "hex": "#4672F6",
+        "count": 998
+      },
+      {
+        "hue": "青 Cyan",
+        "hex": "#00C7D9",
+        "count": 308
+      },
+      {
+        "hue": "靛 Indigo",
+        "hex": "#A661FF",
+        "count": 130
+      }
+    ],
+    "neutral": [
+      {
+        "role": "背景 / 卡片",
+        "name": "Title & Tips",
+        "hex": "#FFFFFF",
+        "lightness": 1,
+        "count": 12508
+      },
+      {
+        "role": "分割线 / 边框",
+        "name": "Vector",
+        "hex": "#E8E8E8",
+        "lightness": 0.91,
+        "count": 4169
+      },
+      {
+        "role": "占位 / 禁用",
+        "name": "椭圆形",
+        "hex": "#BBBDC0",
+        "lightness": 0.743,
+        "count": 564
+      },
+      {
+        "role": "次要文本",
+        "name": "Union",
+        "hex": "#909499",
+        "lightness": 0.582,
+        "count": 1193
+      },
+      {
+        "role": "主要文本",
+        "name": "Wifi-path",
+        "hex": "#000000",
+        "lightness": 0,
+        "count": 4473
+      }
+    ],
+    "typeScale": [
+      {
+        "fontSize": 24,
+        "lineHeight": 28,
+        "fontWeight": 400,
+        "fontFamily": "BR Hendrix",
+        "sampleName": "MooPC",
+        "count": 294
+      },
+      {
+        "fontSize": 22,
+        "lineHeight": 26,
+        "fontWeight": 600,
+        "fontFamily": "Misans",
+        "sampleName": "style_label_h1",
+        "count": 176
+      },
+      {
+        "fontSize": 20,
+        "lineHeight": 28,
+        "fontWeight": 600,
+        "fontFamily": "PingFang SC",
+        "sampleName": "主标题",
+        "count": 306
+      },
+      {
+        "fontSize": 18,
+        "lineHeight": 21,
+        "fontWeight": 600,
+        "fontFamily": "Misans",
+        "sampleName": "Detailed Quotes",
+        "count": 401
+      },
+      {
+        "fontSize": 17,
+        "lineHeight": 22,
+        "fontWeight": 590,
+        "fontFamily": "SF Pro",
+        "sampleName": "Time",
+        "count": 130
+      },
+      {
+        "fontSize": 16,
+        "lineHeight": 19,
+        "fontWeight": 400,
+        "fontFamily": "Misans",
+        "sampleName": "1字段",
+        "count": 2025
+      },
+      {
+        "fontSize": 15,
+        "lineHeight": 18,
+        "fontWeight": 400,
+        "fontFamily": "Misans",
+        "sampleName": "If you need to use Futu Token",
+        "count": 5059
+      },
+      {
+        "fontSize": 14,
+        "lineHeight": 19,
+        "fontWeight": 400,
+        "fontFamily": "BR Hendrix",
+        "sampleName": "US Margin Account (2309)",
+        "count": 1127
+      },
+      {
+        "fontSize": 13,
+        "lineHeight": 15,
+        "fontWeight": 400,
+        "fontFamily": "Misans",
+        "sampleName": "文本",
+        "count": 2362
+      },
+      {
+        "fontSize": 12,
+        "lineHeight": 14,
+        "fontWeight": 400,
+        "fontFamily": "Misans",
+        "sampleName": "skin_h1_24px",
+        "count": 4286
+      },
+      {
+        "fontSize": 11,
+        "lineHeight": 13,
+        "fontWeight": 400,
+        "fontFamily": "Misans",
+        "sampleName": "Quotes",
+        "count": 2158
+      },
+      {
+        "fontSize": 10,
+        "lineHeight": 14,
+        "fontWeight": 400,
+        "fontFamily": "BR Hendrix",
+        "sampleName": "港股标签",
+        "count": 568
+      }
+    ]
+  },
+  "colors": [
+    {
+      "name": "Title & Tips",
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "count": 12304,
+      "source": "file"
+    },
+    {
+      "name": "Wifi-path",
+      "hex": "#000000",
+      "opacity": 1,
+      "count": 4193,
+      "source": "file"
+    },
+    {
+      "name": "Vector",
+      "hex": "#E8E8E8",
+      "opacity": 1,
+      "count": 4169,
+      "source": "file"
+    },
+    {
+      "name": "B01组合期权下单",
+      "hex": "#0F1112",
+      "opacity": 1,
+      "count": 3066,
+      "source": "file"
+    },
+    {
+      "name": "Rectangle 10",
+      "hex": "#1D1F21",
+      "opacity": 1,
+      "count": 1505,
+      "source": "file"
+    },
+    {
+      "name": "icon",
+      "hex": "#00A870",
+      "opacity": 1,
+      "count": 1385,
+      "source": "file"
+    },
+    {
+      "name": "Frame 2131032320",
+      "hex": "#F36F12",
+      "opacity": 1,
+      "count": 1322,
+      "source": "file"
+    },
+    {
+      "name": "Union",
+      "hex": "#909499",
+      "opacity": 1,
+      "count": 1193,
+      "source": "file"
+    },
+    {
+      "name": "Ellipse 14792",
+      "hex": "#F2F3F5",
+      "opacity": 1,
+      "count": 1088,
+      "source": "file"
+    },
+    {
+      "name": "Rectangle 7292",
+      "hex": "#F03A55",
+      "opacity": 1,
+      "count": 1073,
+      "source": "file"
+    },
+    {
+      "name": "Background",
+      "hex": "#D9D9D9",
+      "opacity": 1,
+      "count": 1000,
+      "source": "file"
+    },
+    {
+      "name": "Vector 640",
+      "hex": "#4672F6",
+      "opacity": 1,
+      "count": 998,
+      "source": "file"
+    },
+    {
+      "name": "形状",
+      "hex": "#535A66",
+      "opacity": 0.08,
+      "count": 983,
+      "source": "file"
+    },
+    {
+      "name": "Polygon 9",
+      "hex": "#606266",
+      "opacity": 1,
+      "count": 971,
+      "source": "file"
+    },
+    {
+      "name": "Union",
+      "hex": "#E3E4E5",
+      "opacity": 1,
+      "count": 970,
+      "source": "file"
+    },
+    {
+      "name": "Rectangle 2294",
+      "hex": "#E33E27",
+      "opacity": 1,
+      "count": 874,
+      "source": "file"
+    },
+    {
+      "name": "Vector",
+      "hex": "#636569",
+      "opacity": 1,
+      "count": 697,
+      "source": "file"
+    },
+    {
+      "name": "Intersect",
+      "hex": "#F2F2F2",
+      "opacity": 1,
+      "count": 658,
+      "source": "file"
+    },
+    {
+      "name": "椭圆形",
+      "hex": "#BBBDC0",
+      "opacity": 1,
+      "count": 564,
+      "source": "file"
+    },
+    {
+      "name": "基础按钮",
+      "hex": "#2C2F33",
+      "opacity": 1,
+      "count": 490,
+      "source": "file"
+    },
+    {
+      "name": "Ellipse 14790",
+      "hex": "#4840BB",
+      "opacity": 1,
+      "count": 401,
+      "source": "file"
+    },
+    {
+      "name": "Polygon 1",
+      "hex": "#C4C4C4",
+      "opacity": 1,
+      "count": 398,
+      "source": "file"
+    },
+    {
+      "name": "Rectangle 2690",
+      "hex": "#363A40",
+      "opacity": 1,
+      "count": 395,
+      "source": "file"
+    },
+    {
+      "name": "Union",
+      "hex": "#E53751",
+      "opacity": 1,
+      "count": 388,
+      "source": "file"
+    }
+  ],
+  "typography": [
+    {
+      "name": "If you need to use Futu Token",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 15,
+      "lineHeight": 18,
+      "letterSpacing": 0,
+      "color": "#0F1112",
+      "count": 5059,
+      "source": "file"
+    },
+    {
+      "name": "skin_h1_24px",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 12,
+      "lineHeight": 14,
+      "letterSpacing": 0,
+      "color": "#E3E4E5",
+      "count": 4286,
+      "source": "file"
+    },
+    {
+      "name": "文本",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 13,
+      "lineHeight": 15,
+      "letterSpacing": 0,
+      "color": "#606266",
+      "count": 2362,
+      "source": "file"
+    },
+    {
+      "name": "Quotes",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 11,
+      "lineHeight": 13,
+      "letterSpacing": 0,
+      "color": "#F36F12",
+      "count": 2158,
+      "source": "file"
+    },
+    {
+      "name": "1字段",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 16,
+      "lineHeight": 19,
+      "letterSpacing": 0,
+      "color": "#00A870",
+      "count": 2025,
+      "source": "file"
+    },
+    {
+      "name": "h2",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 12,
+      "lineHeight": 16,
+      "letterSpacing": 0,
+      "color": "#9B9B9E",
+      "count": 1690,
+      "source": "file"
+    },
+    {
+      "name": "US Margin Account (2309)",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 14,
+      "lineHeight": 19,
+      "letterSpacing": 0,
+      "color": "#E3E4E5",
+      "count": 1127,
+      "source": "file"
+    },
+    {
+      "name": "标题",
+      "fontFamily": "Misans",
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 19,
+      "letterSpacing": 0,
+      "color": "#0F1112",
+      "count": 1008,
+      "source": "file"
+    },
+    {
+      "name": "港股标签",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 10,
+      "lineHeight": 14,
+      "letterSpacing": 0,
+      "color": "#AF64FF",
+      "count": 568,
+      "source": "file"
+    },
+    {
+      "name": "Label",
+      "fontFamily": "Misans",
+      "fontWeight": 600,
+      "fontSize": 15,
+      "lineHeight": 18,
+      "letterSpacing": 0,
+      "color": "#FFFFFF",
+      "count": 541,
+      "source": "file"
+    },
+    {
+      "name": "h1",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 12,
+      "lineHeight": 16,
+      "letterSpacing": 0,
+      "color": "#0F1112",
+      "count": 536,
+      "source": "file"
+    },
+    {
+      "name": "h1",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 13,
+      "lineHeight": 18,
+      "letterSpacing": 0,
+      "color": "#4840BB",
+      "count": 501,
+      "source": "file"
+    },
+    {
+      "name": "text",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 14,
+      "lineHeight": 19,
+      "letterSpacing": 0,
+      "color": "#606266",
+      "count": 492,
+      "source": "file"
+    },
+    {
+      "name": "link2",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 16,
+      "lineHeight": 22,
+      "letterSpacing": 0,
+      "color": "#E3E4E5",
+      "count": 467,
+      "source": "file"
+    },
+    {
+      "name": "Lite",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 15,
+      "lineHeight": 20,
+      "letterSpacing": 0,
+      "color": "#E3E4E5",
+      "count": 464,
+      "source": "file"
+    },
+    {
+      "name": "文本",
+      "fontFamily": "Misans",
+      "fontWeight": 600,
+      "fontSize": 13,
+      "lineHeight": 15,
+      "letterSpacing": 0,
+      "color": "#0F1112",
+      "count": 456,
+      "source": "file"
+    },
+    {
+      "name": "百分位",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 9,
+      "lineHeight": 11,
+      "letterSpacing": 0,
+      "color": "#909499",
+      "count": 451,
+      "source": "file"
+    },
+    {
+      "name": "-99.00 HKD",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 16,
+      "lineHeight": 21,
+      "letterSpacing": 0,
+      "color": "#0F1112",
+      "count": 435,
+      "source": "file"
+    },
+    {
+      "name": "h1",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 22,
+      "letterSpacing": 0,
+      "color": "#0F1112",
+      "count": 409,
+      "source": "file"
+    },
+    {
+      "name": "Detailed Quotes",
+      "fontFamily": "Misans",
+      "fontWeight": 600,
+      "fontSize": 18,
+      "lineHeight": 21,
+      "letterSpacing": 0,
+      "color": "#0F1112",
+      "count": 401,
+      "source": "file"
+    },
+    {
+      "name": "pub_text_h2",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 400,
+      "fontSize": 12,
+      "lineHeight": 17,
+      "letterSpacing": 0,
+      "color": "#9B9B9E",
+      "count": 380,
+      "source": "file"
+    },
+    {
+      "name": "文本",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 13,
+      "lineHeight": 18,
+      "letterSpacing": 0,
+      "color": "#9B9B9E",
+      "count": 377,
+      "source": "file"
+    },
+    {
+      "name": "蓝色标签",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 10,
+      "lineHeight": 12,
+      "letterSpacing": 0,
+      "color": "#5E9BFD",
+      "count": 346,
+      "source": "file"
+    },
+    {
+      "name": "默认（标题为必选）",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 400,
+      "fontSize": 14,
+      "lineHeight": 22,
+      "letterSpacing": 0,
+      "color": "#606266",
+      "count": 344,
+      "source": "file"
+    }
+  ]
+}

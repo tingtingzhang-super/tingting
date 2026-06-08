@@ -1,0 +1,45 @@
+/* MOOUI design tokens exposed as CSS custom properties */
+:root {
+  /* Brand */
+  --moo-primary: #2f6bff;
+  --moo-primary-pressed: #1f4fd6;
+  --moo-primary-light: #eaf1ff;
+  --moo-primary-disabled: #a8c2ff;
+
+  /* Functional */
+  --moo-success: #13c26b;
+  --moo-warning: #ff9f0a;
+  --moo-danger: #f5503a;
+  --moo-info: #1ab0e8;
+
+  /* Neutral */
+  --moo-text-1: #1a1a1f;
+  --moo-text-2: #5a5c66;
+  --moo-text-3: #9498a3;
+  --moo-border: #e6e8ee;
+  --moo-fill: #f2f3f7;
+  --moo-bg: #f7f8fa;
+  --moo-white: #ffffff;
+
+  /* Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 20px;
+  --radius-full: 999px;
+
+  /* Shadow */
+  --shadow-1: 0 1px 2px rgba(20, 22, 30, 0.06);
+  --shadow-2: 0 4px 16px rgba(20, 22, 30, 0.1);
+  --shadow-3: 0 8px 32px rgba(20, 22, 30, 0.16);
+
+  /* Docs chrome */
+  --doc-bg: #0d1020;
+  --doc-surface: #ffffff;
+  --doc-sidebar: #11132a;
+  --doc-sidebar-2: #181b38;
+  --doc-text: #1a1a1f;
+  --doc-muted: #6b6f7d;
+  --doc-line: #ececf2;
+  --doc-accent: #6c7bff;
+}
