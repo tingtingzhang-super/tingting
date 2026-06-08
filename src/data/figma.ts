@@ -22,14 +22,17 @@ export interface FigmaType {
   source: "style" | "inline" | "file";
 }
 
-export interface SemanticColor {
-  role: string;
+export interface AccentColor {
+  hue: string;
   hex: string;
   count: number;
 }
-export interface NeutralColor extends SemanticColor {
+export interface NeutralColor {
+  role: string;
   name: string;
+  hex: string;
   lightness: number;
+  count: number;
 }
 export interface TypeScaleItem {
   fontSize: number;
@@ -40,8 +43,7 @@ export interface TypeScaleItem {
   count: number;
 }
 export interface Semantic {
-  brand: SemanticColor[];
-  functional: SemanticColor[];
+  accents: AccentColor[];
   neutral: NeutralColor[];
   typeScale: TypeScaleItem[];
 }
@@ -63,7 +65,7 @@ export interface FigmaTokens {
 
 export const figmaTokens = generated as unknown as FigmaTokens;
 
-const emptySemantic: Semantic = { brand: [], functional: [], neutral: [], typeScale: [] };
+const emptySemantic: Semantic = { accents: [], neutral: [], typeScale: [] };
 export const semantic: Semantic = figmaTokens.semantic ?? emptySemantic;
 
 export const figmaFileUrl = `https://www.figma.com/design/${figmaTokens.fileKey}/MOOUI_Mobile_Components?node-id=${figmaTokens.nodeId.replace(

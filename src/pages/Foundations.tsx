@@ -8,24 +8,6 @@ import {
 } from "../data/tokens";
 import { figmaTokens, semantic } from "../data/figma";
 
-const roleLabel: Record<string, string> = {
-  primary: "主色 Primary",
-  secondary: "辅助 Secondary",
-  success: "成功 Success",
-  warning: "警告 Warning",
-  danger: "危险 Danger",
-  info: "信息 Info",
-};
-
-function rgba(hex: string, opacity: number) {
-  if (opacity >= 1) return hex;
-  const n = hex.replace("#", "");
-  const r = parseInt(n.slice(0, 2), 16);
-  const g = parseInt(n.slice(2, 4), 16);
-  const b = parseInt(n.slice(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-}
-
 function SyncedMeta() {
   if (!figmaTokens.synced) return null;
   const scopeText =
@@ -69,25 +51,17 @@ export function Colors() {
         <SyncBadge synced={figmaTokens.synced} />
         <SyncedMeta />
       </div>
-      {figmaTokens.synced && semantic.brand.length > 0 && (
+      {figmaTokens.synced && semantic.accents.length > 0 && (
         <Section
-          title="语义色 · 由 Figma 自动归类"
-          hint="依据全库颜色的使用频次与色相/明度分布自动推导出的语义 Token。"
+          title="主要强调色 · 来自 Figma"
+          hint="全库使用频次最高的强调色（按色相去重，仅保留真实存在的颜色）。"
         >
           <div className="grid grid--4">
-            {semantic.brand.map((c) => (
+            {semantic.accents.map((c, i) => (
               <SemanticChip
-                key={"b" + c.role}
+                key={c.hex + i}
                 hex={c.hex}
-                label={roleLabel[c.role] ?? c.role}
-                sub={`使用 ${c.count} 次`}
-              />
-            ))}
-            {semantic.functional.map((c) => (
-              <SemanticChip
-                key={"f" + c.role}
-                hex={c.hex}
-                label={roleLabel[c.role] ?? c.role}
+                label={`${c.hue}${i === 0 ? " · 最高频" : ""}`}
                 sub={`使用 ${c.count} 次`}
               />
             ))}
@@ -95,7 +69,7 @@ export function Colors() {
         </Section>
       )}
       {figmaTokens.synced && semantic.neutral.length > 0 && (
-        <Section title="中性色 · 由 Figma 自动归类" hint="按明度归类的文本 / 背景 / 分割线建议。">
+        <Section title="中性灰阶 · 来自 Figma" hint="按明度由浅到深，给出建议用途。">
           <div className="grid grid--4">
             {semantic.neutral.map((c, i) => (
               <SemanticChip
@@ -108,37 +82,13 @@ export function Colors() {
           </div>
         </Section>
       )}
-      {figmaTokens.synced && figmaTokens.colors.length > 0 && (
-        <Section
-          title="全部颜色 · 按使用频次"
-          hint={`全库共 ${figmaTokens.counts.colors} 个颜色，下方展示使用最多的 ${figmaTokens.colors.length} 个。`}
-        >
-          <div className="grid grid--4">
-            {figmaTokens.colors.map((c, i) => (
-              <div className="swatch" key={c.hex + i}>
-                <div
-                  className="swatch__chip"
-                  style={{ background: rgba(c.hex, c.opacity), height: 56 }}
-                />
-                <div className="swatch__body">
-                  <div className="swatch__hex">
-                    {c.hex}
-                    {c.opacity < 1 ? ` · ${Math.round(c.opacity * 100)}%` : ""}
-                  </div>
-                  <div className="swatch__usage">使用 {c.count} 次</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Section>
-      )}
       {figmaTokens.synced && (
         <h2 className="section__title" style={{ marginTop: 40 }}>
           内置参考色板
         </h2>
       )}
       {figmaTokens.synced && (
-        <p className="section__hint">以下为站点内置组件所用的策划色板，作为语义映射的参考基准。</p>
+        <p className="section__hint">以下为站点内置组件所用的策划色板，仅作参考基准。</p>
       )}
       {colorGroups.map((g) => (
         <Section key={g.title} title={g.title} hint={g.description}>

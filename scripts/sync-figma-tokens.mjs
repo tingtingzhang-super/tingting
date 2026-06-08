@@ -152,12 +152,15 @@ function walk(node, acc) {
 }
 
 /* ---------------- semantic derivation ---------------- */
-function hueBucket(h) {
-  if (h <= 18 || h >= 345) return "danger";
-  if (h <= 50) return "warning";
-  if (h >= 95 && h <= 160) return "success";
-  if (h >= 175 && h <= 265) return "info";
-  return "other";
+function hueName(h) {
+  if (h < 15 || h >= 345) return "红 Red";
+  if (h < 45) return "橙 Orange";
+  if (h < 65) return "黄 Yellow";
+  if (h < 160) return "绿 Green";
+  if (h < 200) return "青 Cyan";
+  if (h < 255) return "蓝 Blue";
+  if (h < 290) return "靛 Indigo";
+  return "紫 Purple";
 }
 
 function deriveSemantic(colors, typography) {
@@ -176,16 +179,14 @@ function deriveSemantic(colors, typography) {
   const neutral = enriched.filter((c) => !isChromatic(c));
   const chromatic = enriched.filter(isChromatic);
 
-  // Neutrals sorted light -> dark, with a suggested role.
-  neutral.sort((a, b) => b.hsl.l - a.hsl.l);
+  // Neutrals: one representative per usage band (light -> dark).
   const neutralRole = (l) => {
-    if (l >= 0.96) return "background / surface";
-    if (l >= 0.88) return "fill / divider";
-    if (l >= 0.6) return "text tertiary";
-    if (l >= 0.4) return "text secondary";
-    return "text primary";
+    if (l >= 0.95) return "背景 / 卡片";
+    if (l >= 0.85) return "分割线 / 边框";
+    if (l >= 0.6) return "占位 / 禁用";
+    if (l >= 0.4) return "次要文本";
+    return "主要文本";
   };
-  // One representative per role band, choosing the most-used.
   const roleBest = new Map();
   for (const c of neutral) {
     const role = neutralRole(c.hsl.l);
@@ -202,40 +203,35 @@ function deriveSemantic(colors, typography) {
       count: c.count,
     }));
 
+  // Accents: most-used chromatic colors, de-duplicated by hue so the same
+  // color is never shown twice. No speculative primary/warning labels — just
+  // the real high-frequency accents with a hue hint.
   const byCount = [...chromatic].sort((a, b) => b.count - a.count);
-
-  // Brand = most-used chromatic; secondary = next most-used of a distant hue.
-  const brand = [];
-  const brandPick = byCount[0] || null;
-  if (brandPick) brand.push({ role: "primary", hex: brandPick.hex, count: brandPick.count });
-  const secondary = byCount.find(
-    (c) =>
-      brandPick &&
-      Math.min(
-        Math.abs(c.hsl.h - brandPick.hsl.h),
-        360 - Math.abs(c.hsl.h - brandPick.hsl.h)
-      ) > 40
-  );
-  if (secondary) brand.push({ role: "secondary", hex: secondary.hex, count: secondary.count });
-
-  // Functional = most-used chromatic per hue bucket.
-  const buckets = { success: null, warning: null, danger: null, info: null };
+  const accents = [];
   for (const c of byCount) {
-    const b = hueBucket(c.hsl.h);
-    if (b in buckets && !buckets[b]) buckets[b] = c;
+    const tooClose = accents.some(
+      (a) => Math.min(Math.abs(a.hsl.h - c.hsl.h), 360 - Math.abs(a.hsl.h - c.hsl.h)) < 22
+    );
+    if (tooClose) continue;
+    accents.push(c);
+    if (accents.length >= 6) break;
   }
-  const functional = Object.entries(buckets)
-    .filter(([, c]) => c)
-    .map(([role, c]) => ({ role, hex: c.hex, count: c.count }));
+  const accentTokens = accents.map((c) => ({
+    hue: hueName(c.hsl.h),
+    hex: c.hex,
+    count: c.count,
+  }));
 
-  // Type scale: realistic mobile range only, most-used entry per size.
+  // Type scale: realistic mobile range, top sizes by usage (capped), size desc.
   const bySize = new Map();
   for (const t of typography) {
-    if (t.fontSize == null || t.fontSize < 10 || t.fontSize > 44) continue;
+    if (t.fontSize == null || t.fontSize < 10 || t.fontSize > 40) continue;
     const cur = bySize.get(t.fontSize);
     if (!cur || t.count > cur.count) bySize.set(t.fontSize, t);
   }
   const typeScale = [...bySize.values()]
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 12)
     .sort((a, b) => b.fontSize - a.fontSize)
     .map((t) => ({
       fontSize: t.fontSize,
@@ -246,7 +242,7 @@ function deriveSemantic(colors, typography) {
       count: t.count,
     }));
 
-  return { brand, functional, neutral: neutralTokens, typeScale };
+  return { accents: accentTokens, neutral: neutralTokens, typeScale };
 }
 
 /* ---------------- main ---------------- */
@@ -290,14 +286,14 @@ async function main() {
     },
     semantic,
     // Cap raw lists for a reasonable bundle size; sorted by usage.
-    colors: colors.slice(0, 80).map((c) => ({
+    colors: colors.slice(0, 24).map((c) => ({
       name: c.name,
       hex: c.hex,
       opacity: c.opacity,
       count: c.count,
       source: SCOPE === "node" ? "inline" : "file",
     })),
-    typography: typography.slice(0, 60).map((t) => ({
+    typography: typography.slice(0, 24).map((t) => ({
       name: t.name,
       fontFamily: t.fontFamily,
       fontWeight: t.fontWeight,
@@ -313,8 +309,8 @@ async function main() {
   writeFileSync(OUT, JSON.stringify(out, null, 2) + "\n");
   console.log(
     `[sync-figma] colors=${colors.length} text=${typography.length} ` +
-      `brand=${semantic.brand.length} functional=${semantic.functional.length} ` +
-      `neutral=${semantic.neutral.length} typeScale=${semantic.typeScale.length}`
+      `accents=${semantic.accents.length} neutral=${semantic.neutral.length} ` +
+      `typeScale=${semantic.typeScale.length}`
   );
   console.log(`[sync-figma] wrote -> ${OUT}`);
 }
