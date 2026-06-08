@@ -21,6 +21,18 @@ npm run build    # 类型检查 + 生产构建（输出 dist/）
 npm run preview  # 预览生产构建
 ```
 
+## 在线部署（GitHub Pages）
+
+仓库内置 `.github/workflows/deploy.yml`：推送到 `main` 或任意 `cursor/**` 分支时，会自动 `npm run build` 并将 `dist/` 发布到 GitHub Pages。
+
+首次使用需启用一次（仅需点一个开关）：
+
+1. 打开仓库 **Settings → Pages**；
+2. **Build and deployment → Source** 选择 **GitHub Actions**；
+3. 之后每次推送都会自动部署，地址为 `https://tingtingzhang-super.github.io/tingting/`。
+
+> 站点使用 `HashRouter` 且 `base: "./"`，可直接在子路径下静态托管，无需服务端路由配置。
+
 ## 目录结构
 
 ```
