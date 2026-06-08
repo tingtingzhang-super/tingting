@@ -1,10 +1,553 @@
 {
-  "synced": false,
-  "fetchedAt": null,
+  "synced": true,
+  "fetchedAt": "2026-06-08T02:23:52.687Z",
   "fileKey": "qBzMhUc16MW3vCvOBNT4SR",
   "nodeId": "65811:180757",
-  "nodeName": null,
-  "counts": { "colors": 0, "typography": 0 },
-  "colors": [],
-  "typography": []
+  "nodeName": "        时间轴 Timeline 👷",
+  "counts": {
+    "colors": 28,
+    "typography": 37
+  },
+  "colors": [
+    {
+      "name": "Frame 2131034172",
+      "hex": "#FFFFFF",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Background 9",
+      "hex": "#F4F4F4",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "椭圆形",
+      "hex": "#0F1112",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Background 36",
+      "hex": "#F2AE00",
+      "opacity": 0.29,
+      "source": "inline"
+    },
+    {
+      "name": "形状",
+      "hex": "#000000",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Icon 3",
+      "hex": "#535457",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "UI kit 标题",
+      "hex": "#E53751",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "UI kit 标题",
+      "hex": "#1A1E26",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Frame 2082894175",
+      "hex": "#CAD2E0",
+      "opacity": 0.15,
+      "source": "inline"
+    },
+    {
+      "name": "Ellipse 1",
+      "hex": "#A661FF",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "_时间轴元件/节点信息",
+      "hex": "#FFEEE2",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "_时间轴元件/节点信息",
+      "hex": "#EAF2FF",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "灰底按钮",
+      "hex": "#535A66",
+      "opacity": 0.08,
+      "source": "inline"
+    },
+    {
+      "name": "Combined Shape",
+      "hex": "#F36F12",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Oval 8",
+      "hex": "#FF4C0D",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "市场标签",
+      "hex": "#3C86FD",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Vector 9476",
+      "hex": "#DF0A0A",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "头像",
+      "hex": "#D9D9D9",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Rectangle 9477",
+      "hex": "#F5F6F6",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Triangle",
+      "hex": "#BEBEBE",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Rectangle 7909",
+      "hex": "#F83131",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Vector",
+      "hex": "#F0F3FA",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Vector",
+      "hex": "#006B30",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Vector",
+      "hex": "#004C89",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Ellipse 62",
+      "hex": "#F83232",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Rectangle 111143111",
+      "hex": "#F03A55",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Ellipse 62",
+      "hex": "#262477",
+      "opacity": 1,
+      "source": "inline"
+    },
+    {
+      "name": "Rectangle 111143111",
+      "hex": "#00A870",
+      "opacity": 1,
+      "source": "inline"
+    }
+  ],
+  "typography": [
+    {
+      "name": "组件索引",
+      "color": "#FFFFFF",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 600,
+      "fontSize": 64,
+      "lineHeight": 90,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "组件索引",
+      "color": "#FFFFFF",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 700,
+      "fontSize": 64,
+      "lineHeight": 86,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "控件说明",
+      "color": "#000000",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 600,
+      "fontSize": 60,
+      "lineHeight": 84,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "2023.11.06",
+      "color": "#000000",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 600,
+      "fontSize": 40,
+      "lineHeight": 56,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "H1",
+      "color": "#171718",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 900,
+      "fontSize": 40,
+      "lineHeight": 54,
+      "letterSpacing": 0.4,
+      "source": "inline"
+    },
+    {
+      "name": "美股ETF投资各位大神经验畅聊",
+      "color": "#FFFFFF",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 28,
+      "lineHeight": 33,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "时间节点：一般用于展示节点进程状态，有未激活、已激活两种形式，搭配标题、日期概括事件信息； 时间线： 一般用于连接节点进程形成一系列事件轴，用虚线/实线两种形式反映时间线未过去、已过去状态。",
+      "color": "#000000",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 500,
+      "fontSize": 24,
+      "lineHeight": 32,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "MooPC",
+      "color": "#FFFFFF",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 24,
+      "lineHeight": 28,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "H1",
+      "color": "#171718",
+      "fontFamily": "Inter",
+      "fontWeight": 600,
+      "fontSize": 24,
+      "lineHeight": 29,
+      "letterSpacing": 0.24,
+      "source": "inline"
+    },
+    {
+      "name": "Janet",
+      "color": "#000000",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 500,
+      "fontSize": 20,
+      "lineHeight": 23,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "规范说明 UE",
+      "color": "#F36F12",
+      "fontFamily": ".PingFang SC",
+      "fontWeight": 400,
+      "fontSize": 20,
+      "lineHeight": 28,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "H1",
+      "color": "#171718",
+      "fontFamily": "Inter",
+      "fontWeight": 600,
+      "fontSize": 20,
+      "lineHeight": 24,
+      "letterSpacing": 0.2,
+      "source": "inline"
+    },
+    {
+      "name": "H1",
+      "color": "#090C14",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 600,
+      "fontSize": 20,
+      "lineHeight": 28,
+      "letterSpacing": 0.2,
+      "source": "inline"
+    },
+    {
+      "name": "1",
+      "color": "#FFFFFF",
+      "fontFamily": "Inter",
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 21,
+      "letterSpacing": 0.03,
+      "source": "inline"
+    },
+    {
+      "name": "1、连接线 2、节点标签 3、节点标题（可选） 4、节点时间（可选） 5、节点辅助信息（可选） *节点辅助信息不可单独出现",
+      "color": "#171718",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 500,
+      "fontSize": 16,
+      "lineHeight": 24,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "H1",
+      "color": "#0F1112",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 22,
+      "letterSpacing": 0.16,
+      "source": "inline"
+    },
+    {
+      "name": "Tab",
+      "color": "#0F1112",
+      "fontFamily": "Misans",
+      "fontWeight": 600,
+      "fontSize": 16,
+      "lineHeight": 19,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "TEN：Wangyu Internet Cafe will go public in the United States",
+      "color": "#0F1112",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 16,
+      "lineHeight": 19,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "黄色区域是固定宽度,其余自适应宽度展示",
+      "color": "#262626",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 400,
+      "fontSize": 15,
+      "lineHeight": 21,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "节点标题",
+      "color": "#0F1112",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 15,
+      "lineHeight": 18,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "Time",
+      "color": "#000000",
+      "fontFamily": "SF Pro Text",
+      "fontWeight": 600,
+      "fontSize": 15,
+      "lineHeight": 18,
+      "letterSpacing": -0.3,
+      "source": "inline"
+    },
+    {
+      "name": "Como vs Cremonese",
+      "color": "#0F1112",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 15,
+      "lineHeight": 20,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "右侧结构",
+      "color": "#0F1112",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 400,
+      "fontSize": 14,
+      "lineHeight": 22,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "H1",
+      "color": "#606266",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 400,
+      "fontSize": 14,
+      "lineHeight": 20,
+      "letterSpacing": 0.14,
+      "source": "inline"
+    },
+    {
+      "name": "节点描述",
+      "color": "#606266",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 13,
+      "lineHeight": 15,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "节点时间",
+      "color": "#0F1112",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 13,
+      "lineHeight": 18,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "style_label_h1",
+      "color": "#606266",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 13,
+      "lineHeight": 21,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "style_btn_main",
+      "color": "#0F1112",
+      "fontFamily": "Misans",
+      "fontWeight": 600,
+      "fontSize": 13,
+      "lineHeight": 15,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "College Football",
+      "color": "#606266",
+      "fontFamily": "MiSans",
+      "fontWeight": 330,
+      "fontSize": 13,
+      "lineHeight": 17,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "方案A",
+      "color": "#000000",
+      "fontFamily": "Inter",
+      "fontWeight": 400,
+      "fontSize": 12,
+      "lineHeight": 15,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "skin_style_label_h2",
+      "color": "#0F1112",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 600,
+      "fontSize": 12,
+      "lineHeight": 14,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "skin_style_label_h2",
+      "color": "#606266",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 12,
+      "lineHeight": 14,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "时间节点(当前)",
+      "color": "#606266",
+      "fontFamily": "PingFang HK",
+      "fontWeight": 400,
+      "fontSize": 12,
+      "lineHeight": 24,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "未激活状态: 表示过去节点、将来节点",
+      "color": "#0F1112",
+      "fontFamily": "PingFang SC",
+      "fontWeight": 400,
+      "fontSize": 12,
+      "lineHeight": 17,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "skin_style_label_h2",
+      "color": "#606266",
+      "fontFamily": "Misans",
+      "fontWeight": 400,
+      "fontSize": 11,
+      "lineHeight": 13,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "文字颜色h1",
+      "color": "#606266",
+      "fontFamily": "BR Hendrix",
+      "fontWeight": 400,
+      "fontSize": 10,
+      "lineHeight": 14,
+      "letterSpacing": 0,
+      "source": "inline"
+    },
+    {
+      "name": "US",
+      "color": "#FFFFFF",
+      "fontFamily": "MiSans",
+      "fontWeight": 520,
+      "fontSize": 8,
+      "lineHeight": 8,
+      "letterSpacing": 0,
+      "source": "inline"
+    }
+  ]
 }

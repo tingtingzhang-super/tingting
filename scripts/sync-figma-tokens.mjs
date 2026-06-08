@@ -68,6 +68,8 @@ function solidFromFills(fills) {
   const paint = fills.find((f) => f.visible !== false && f.type === "SOLID");
   if (!paint || !paint.color) return null;
   const opacity = paint.opacity ?? paint.color.a ?? 1;
+  // Skip fully transparent paints (invisible helper layers).
+  if (opacity <= 0.01) return null;
   return { hex: toHex(paint.color), opacity: Number(opacity.toFixed(3)) };
 }
 
@@ -90,6 +92,7 @@ function textFromStyle(s) {
 /** Depth-first walk collecting inline colors + text styles from a node tree. */
 function walk(node, acc) {
   if (!node || typeof node !== "object") return;
+  if (node.visible === false) return;
   const solid = solidFromFills(node.fills);
   if (solid && node.type !== "TEXT") {
     acc.colors.set(`${solid.hex}@${solid.opacity}`, {
