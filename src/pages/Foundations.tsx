@@ -6,7 +6,16 @@ import {
   radii,
   shadows,
 } from "../data/tokens";
-import { figmaTokens } from "../data/figma";
+import { figmaTokens, semantic } from "../data/figma";
+
+const roleLabel: Record<string, string> = {
+  primary: "主色 Primary",
+  secondary: "辅助 Secondary",
+  success: "成功 Success",
+  warning: "警告 Warning",
+  danger: "危险 Danger",
+  info: "信息 Info",
+};
 
 function rgba(hex: string, opacity: number) {
   if (opacity >= 1) return hex;
@@ -19,15 +28,32 @@ function rgba(hex: string, opacity: number) {
 
 function SyncedMeta() {
   if (!figmaTokens.synced) return null;
+  const scopeText =
+    figmaTokens.scope === "node"
+      ? `节点 ${figmaTokens.nodeId}${
+          figmaTokens.scopeName ? ` (${figmaTokens.scopeName})` : ""
+        }`
+      : `整库 ${figmaTokens.counts.pages ?? "?"} 个页面`;
   return (
     <p className="synced-meta">
-      数据来源：Figma 文件 <code>{figmaTokens.fileKey}</code> · 节点{" "}
-      <code>{figmaTokens.nodeId}</code>
-      {figmaTokens.nodeName ? ` (${figmaTokens.nodeName})` : ""} · 同步于{" "}
+      数据来源：Figma 文件 <code>{figmaTokens.fileKey}</code> · {scopeText} · 同步于{" "}
       {figmaTokens.fetchedAt
         ? new Date(figmaTokens.fetchedAt).toLocaleString("zh-CN")
         : "—"}
     </p>
+  );
+}
+
+function SemanticChip({ hex, label, sub }: { hex: string; label: string; sub?: string }) {
+  return (
+    <div className="swatch">
+      <div className="swatch__chip" style={{ background: hex }} />
+      <div className="swatch__body">
+        <div className="swatch__name">{label}</div>
+        <div className="swatch__hex">{hex}</div>
+        {sub && <div className="swatch__usage">{sub}</div>}
+      </div>
+    </div>
   );
 }
 
@@ -43,30 +69,76 @@ export function Colors() {
         <SyncBadge synced={figmaTokens.synced} />
         <SyncedMeta />
       </div>
+      {figmaTokens.synced && semantic.brand.length > 0 && (
+        <Section
+          title="语义色 · 由 Figma 自动归类"
+          hint="依据全库颜色的使用频次与色相/明度分布自动推导出的语义 Token。"
+        >
+          <div className="grid grid--4">
+            {semantic.brand.map((c) => (
+              <SemanticChip
+                key={"b" + c.role}
+                hex={c.hex}
+                label={roleLabel[c.role] ?? c.role}
+                sub={`使用 ${c.count} 次`}
+              />
+            ))}
+            {semantic.functional.map((c) => (
+              <SemanticChip
+                key={"f" + c.role}
+                hex={c.hex}
+                label={roleLabel[c.role] ?? c.role}
+                sub={`使用 ${c.count} 次`}
+              />
+            ))}
+          </div>
+        </Section>
+      )}
+      {figmaTokens.synced && semantic.neutral.length > 0 && (
+        <Section title="中性色 · 由 Figma 自动归类" hint="按明度归类的文本 / 背景 / 分割线建议。">
+          <div className="grid grid--4">
+            {semantic.neutral.map((c, i) => (
+              <SemanticChip
+                key={"n" + i}
+                hex={c.hex}
+                label={c.role}
+                sub={`${c.hex} · 使用 ${c.count} 次`}
+              />
+            ))}
+          </div>
+        </Section>
+      )}
       {figmaTokens.synced && figmaTokens.colors.length > 0 && (
         <Section
-          title="从 Figma 同步的颜色"
-          hint={`共 ${figmaTokens.colors.length} 个颜色样式，直接取自源文件。`}
+          title="全部颜色 · 按使用频次"
+          hint={`全库共 ${figmaTokens.counts.colors} 个颜色，下方展示使用最多的 ${figmaTokens.colors.length} 个。`}
         >
-          <div className="grid grid--3">
+          <div className="grid grid--4">
             {figmaTokens.colors.map((c, i) => (
               <div className="swatch" key={c.hex + i}>
                 <div
                   className="swatch__chip"
-                  style={{ background: rgba(c.hex, c.opacity) }}
+                  style={{ background: rgba(c.hex, c.opacity), height: 56 }}
                 />
                 <div className="swatch__body">
-                  <div className="swatch__name">{c.name}</div>
                   <div className="swatch__hex">
                     {c.hex}
                     {c.opacity < 1 ? ` · ${Math.round(c.opacity * 100)}%` : ""}
                   </div>
-                  <div className="swatch__usage">来源：{c.source}</div>
+                  <div className="swatch__usage">使用 {c.count} 次</div>
                 </div>
               </div>
             ))}
           </div>
         </Section>
+      )}
+      {figmaTokens.synced && (
+        <h2 className="section__title" style={{ marginTop: 40 }}>
+          内置参考色板
+        </h2>
+      )}
+      {figmaTokens.synced && (
+        <p className="section__hint">以下为站点内置组件所用的策划色板，作为语义映射的参考基准。</p>
       )}
       {colorGroups.map((g) => (
         <Section key={g.title} title={g.title} hint={g.description}>
@@ -107,39 +179,35 @@ export function Typography() {
         <SyncBadge synced={figmaTokens.synced} />
         <SyncedMeta />
       </div>
-      {figmaTokens.synced && figmaTokens.typography.length > 0 && (
+      {figmaTokens.synced && semantic.typeScale.length > 0 && (
         <Section
-          title="从 Figma 同步的文字样式"
-          hint={`共 ${figmaTokens.typography.length} 个文本样式，直接取自源文件。`}
+          title="字阶 · 由 Figma 自动归类"
+          hint={`从全库 ${figmaTokens.counts.typography} 个文本样式中，按字号归并出的移动端字阶（10–44px，取每档最常用样式）。`}
         >
           <div className="card" style={{ padding: "8px 4px" }}>
-            {figmaTokens.typography.map((t, i) => (
+            {semantic.typeScale.map((t, i) => (
               <div
-                key={t.name + i}
+                key={t.fontSize + "-" + i}
                 style={{
                   display: "flex",
                   alignItems: "baseline",
                   gap: 24,
-                  padding: "16px 20px",
+                  padding: "14px 20px",
                   borderBottom: "1px solid var(--doc-line)",
                 }}
               >
-                <div style={{ width: 140, color: "var(--doc-muted)", fontSize: 13 }}>
-                  {t.name}
+                <div style={{ width: 70, color: "var(--doc-muted)", fontSize: 13 }}>
+                  {t.fontSize}px
                 </div>
                 <div
                   style={{
                     flex: 1,
-                    fontSize: t.fontSize ?? 16,
-                    lineHeight:
-                      typeof t.lineHeight === "number"
-                        ? `${t.lineHeight}px`
-                        : t.lineHeight ?? "normal",
+                    fontSize: Math.min(t.fontSize, 34),
+                    lineHeight: 1.3,
                     fontWeight: t.fontWeight ?? 400,
-                    color: t.color ?? "var(--moo-text-1)",
                   }}
                 >
-                  MOOUI 移动组件 Aa
+                  MOOUI 移动组件 Aa 123
                 </div>
                 <div
                   style={{
@@ -147,12 +215,12 @@ export function Typography() {
                     fontSize: 12,
                     fontFamily: "monospace",
                     textAlign: "right",
-                    width: 220,
+                    width: 230,
                   }}
                 >
-                  {t.fontSize ?? "—"}/{t.lineHeight ?? "—"} · w{t.fontWeight ?? "—"}
+                  {t.fontSize}/{t.lineHeight ?? "—"} · w{t.fontWeight ?? "—"}
                   <br />
-                  {t.fontFamily ?? ""}
+                  {t.fontFamily ?? ""} · 使用 {t.count} 次
                 </div>
               </div>
             ))}

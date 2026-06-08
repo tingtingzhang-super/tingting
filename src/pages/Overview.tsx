@@ -46,10 +46,13 @@ export function Overview() {
       <Callout>
         {figmaTokens.synced ? (
           <span>
-            <b>已与 Figma 同步：</b> 颜色与文字数据取自源文件{" "}
-            <code>MOOUI_Mobile_Components</code> 节点 <code>{figmaTokens.nodeId}</code>，
-            共 {figmaTokens.counts.colors} 个颜色、{figmaTokens.counts.typography}{" "}
-            个文本样式。详见「颜色」「文字」页面。
+            <b>已与 Figma 同步：</b> 已扫描源文件{" "}
+            <code>MOOUI_Mobile_Components</code>
+            {figmaTokens.scope === "file"
+              ? ` 全库 ${figmaTokens.counts.pages ?? "?"} 个页面`
+              : ` 节点 ${figmaTokens.nodeId}`}
+            ，提取 {figmaTokens.counts.colors} 个颜色、{figmaTokens.counts.typography}{" "}
+            个文本样式，并自动归类出品牌色、功能色、中性色与字阶。详见「颜色」「文字」页面。
           </span>
         ) : (
           <span>

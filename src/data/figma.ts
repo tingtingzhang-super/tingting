@@ -6,7 +6,8 @@ export interface FigmaColor {
   name: string;
   hex: string;
   opacity: number;
-  source: "style" | "inline";
+  count: number;
+  source: "style" | "inline" | "file";
 }
 
 export interface FigmaType {
@@ -17,21 +18,53 @@ export interface FigmaType {
   lineHeight: number | string | null;
   letterSpacing: number | null;
   color: string | null;
-  source: "style" | "inline";
+  count: number;
+  source: "style" | "inline" | "file";
+}
+
+export interface SemanticColor {
+  role: string;
+  hex: string;
+  count: number;
+}
+export interface NeutralColor extends SemanticColor {
+  name: string;
+  lightness: number;
+}
+export interface TypeScaleItem {
+  fontSize: number;
+  lineHeight: number | string | null;
+  fontWeight: number | null;
+  fontFamily: string | null;
+  sampleName: string;
+  count: number;
+}
+export interface Semantic {
+  brand: SemanticColor[];
+  functional: SemanticColor[];
+  neutral: NeutralColor[];
+  typeScale: TypeScaleItem[];
 }
 
 export interface FigmaTokens {
   synced: boolean;
   fetchedAt: string | null;
   fileKey: string;
+  scope?: "file" | "node";
   nodeId: string;
-  nodeName: string | null;
-  counts: { colors: number; typography: number };
+  scopeName?: string | null;
+  nodeName?: string | null;
+  pages?: string[];
+  counts: { colors: number; typography: number; pages?: number };
+  semantic?: Semantic;
   colors: FigmaColor[];
   typography: FigmaType[];
 }
 
 export const figmaTokens = generated as unknown as FigmaTokens;
+
+const emptySemantic: Semantic = { brand: [], functional: [], neutral: [], typeScale: [] };
+export const semantic: Semantic = figmaTokens.semantic ?? emptySemantic;
 
 export const figmaFileUrl = `https://www.figma.com/design/${figmaTokens.fileKey}/MOOUI_Mobile_Components?node-id=${figmaTokens.nodeId.replace(
   ":",

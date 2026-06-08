@@ -68,10 +68,13 @@ FIGMA_TOKEN=figd_xxx FIGMA_FILE_KEY=qBzMhUc16MW3vCvOBNT4SR FIGMA_NODE_ID=65811-1
 
 脚本（`scripts/sync-figma-tokens.mjs`）会：
 
-- 通过 Figma REST API 读取文件的**已发布颜色 / 文字样式**；
-- 额外遍历目标节点 `65811-180757` 子树，收集内联颜色与文本样式作为补充；
-- 将结果写入 `src/data/figma-tokens.generated.json`。
+- **默认扫描整个文件**（所有页面/画布），统计每个纯色与文本样式的使用频次；
+  - 设 `FIGMA_SCOPE=node` 可只扫描单个节点子树（配合 `FIGMA_NODE_ID`）。
+- **自动归类语义 Token**：依据使用频次与色相/明度分布，推导出
+  - 品牌色（primary / secondary）、功能色（success / warning / danger / info）、
+  - 中性色（背景 / 分割线 / 文本各档），以及移动端字阶（10–44px，每档取最常用样式）；
+- 将原始数据 + 语义归类写入 `src/data/figma-tokens.generated.json`。
 
-写入后，`synced` 变为 `true`，站点的「概览 / 颜色 / 文字」页面会自动显示「已与 Figma 同步」徽标并渲染来自源文件的真实数值（含来源、不透明度、字号/行高/字重）。未配置 token 时则回退到 `src/data/tokens.ts` 中的默认规范，并显示「未同步」徽标。
+写入后，`synced` 变为 `true`，站点的「概览 / 颜色 / 文字」页面会自动显示「已与 Figma 同步」徽标，并渲染：语义色板、中性色板、按频次排序的全部颜色，以及自动归并的字阶。未配置 token 时则回退到 `src/data/tokens.ts` 中的默认规范，并显示「未同步」徽标。
 
 > 说明：本仓库中的生成文件初始为占位（`synced: false`），因为当前云端环境尚未配置 `FIGMA_TOKEN`。配置后运行一次同步命令即可完成对齐。
