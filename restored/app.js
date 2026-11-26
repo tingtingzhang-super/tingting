@@ -1,6 +1,6 @@
-const asset = n => `../assets/image-${String(n).padStart(2,'0')}.webp`;
-const coverAsset = n => `../assets/cover-${String(n).padStart(2,'0')}.webp`;
-const originalAsset = n => `../assets/original-${String(n).padStart(2,'0')}.webp`;
+const asset = n => `./assets/image-${String(n).padStart(2,'0')}.webp`;
+const coverAsset = n => `./assets/cover-${String(n).padStart(2,'0')}.webp`;
+const originalAsset = n => `./assets/original-${String(n).padStart(2,'0')}.webp`;
 
 const projects = [
   {
