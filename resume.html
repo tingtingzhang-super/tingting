@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>张利婷 · 简历 · 产品体验设计师</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/resume.css" />
+</head>
+<!--
+  ▍如何修改这份简历
+  1) 标有 <span class="ph">【…】</span> 的是“待填”的真实数据/时间，请替换成你的真实数值，并删掉 class="ph"。
+  2) 直接在下面对应文字处修改即可，保存刷新浏览器就能看到。
+  3) 导出 PDF：点右上角“下载 PDF”按钮（或按 Ctrl/Cmd + P），打印目标选“另存为 PDF”，
+     边距选“默认”，记得勾选“背景图形”，即可得到带强调色的干净 A4 简历。
+  4) 想放照片：把头像图放到 assets/img/avatar.jpg 即可自动显示；不放也没关系。
+-->
+<body>
+  <div class="toolbar no-print">
+    <a class="toolbar__back" href="index.html">← 返回作品集</a>
+    <span class="toolbar__spacer"></span>
+    <button class="btn" id="downloadBtn" type="button">下载 PDF</button>
+  </div>
+
+  <main class="paper" id="paper">
+    <!-- 抬头 -->
+    <header class="head">
+      <div class="head__main">
+        <h1 class="head__name">张利婷</h1>
+        <p class="head__title">产品体验设计师 · 7 年经验</p>
+        <div class="head__meta">
+          <span class="head__contact"><a href="tel:18692208864">186 9220 8864</a></span>
+          <span class="head__contact"><a href="mailto:1193537031@qq.com">1193537031@qq.com</a></span>
+          <span>1998 年</span>
+          <span>本科 · 湖南工商大学 视觉传达设计</span>
+          <span>英语 CET-4</span>
+          <span class="head__contact">作品集：<a href="#" class="ph">【填你的作品集网址】</a></span>
+        </div>
+      </div>
+      <img class="head__photo" src="assets/img/avatar.jpg" alt=""
+           onerror="this.style.display='none'" />
+    </header>
+
+    <!-- 一句话定位 -->
+    <p class="summary">
+      七年体验设计经验，横跨医疗、地产、内容与金融。先后任职于铭铝医疗、万科、字节跳动，现就职于富途，主导设计系统建设与核心行情体验。擅长在高复杂度、强业务约束的场景下，用体系化与数据驱动的方式做设计决策，让体验既高效，又可信。
+    </p>
+
+    <!-- 工作经历 -->
+    <section class="section">
+      <h2 class="section__title">工作经历</h2>
+
+      <!-- 富途 -->
+      <article class="job">
+        <div class="job__row">
+          <div class="job__co">富途 · <span class="role">体验设计师</span></div>
+          <div class="job__date"><span class="ph">【2024.0x】</span> – 至今</div>
+        </div>
+        <p class="job__note">负责富途牛牛「设计系统」与「基础行情」核心模块的体验设计。</p>
+
+        <div class="job__sub">设计系统</div>
+        <ul class="bullets">
+          <li>主导设计系统的搭建与治理，沉淀组件库、Design Token 与规范文档，覆盖 iOS / Android / PC / Web 多端，统一跨端的视觉与交互语言。</li>
+          <li>推动 Figma 组件化与变量（Variables）落地，设计交付与改版效率提升 <span class="ph">【X%】</span>，新增需求的组件复用率达 <span class="ph">【X%】</span>。</li>
+          <li>建立设计-前端组件共建机制，UI 还原度由 <span class="ph">【X%】</span> 提升至 <span class="ph">【X%】</span>，显著减少重复走查与设计债。</li>
+          <li>制定暗黑模式、多端适配与无障碍规范，推动设计系统在团队的采纳率达 <span class="ph">【X%】</span>。</li>
+        </ul>
+
+        <div class="job__sub">基础行情</div>
+        <ul class="bullets">
+          <li>负责个股详情、K 线、盘口、报价列表、自选股等高频核心行情场景的体验设计。</li>
+          <li>在高信息密度、强实时性的金融场景下重构信息层级，改版 <span class="ph">【个股页 / 行情列表】</span>，关键指标（<span class="ph">【自选添加率 / 页面停留 / 交易转化】</span>）提升 <span class="ph">【X%】</span>。</li>
+          <li>面向新手与专业投资者做分层体验设计，兼顾易用与专业，降低新手在 <span class="ph">【关键操作】</span> 的流失。</li>
+          <li>优化行情图表的可视化与跨端一致性，提升数据可读性，对齐 PC 与移动端的行情体验。</li>
+        </ul>
+      </article>
+
+      <!-- 字节跳动 -->
+      <article class="job">
+        <div class="job__row">
+          <div class="job__co">字节跳动 · <span class="role">体验设计师</span></div>
+          <div class="job__date"><span class="ph">【20xx.0x – 20xx.0x】</span></div>
+        </div>
+        <p class="job__note">负责 <span class="ph">【产品 / 业务线】</span> 的 C 端体验设计。</p>
+        <ul class="bullets">
+          <li>负责 <span class="ph">【模块】</span> 体验设计：从 <span class="ph">【业务问题】</span> 出发，通过 <span class="ph">【关键设计决策】</span>，实现 <span class="ph">【DAU / 转化 / 留存 +X%】</span>。</li>
+          <li>在大体量 C 端产品的高速迭代中，沉淀数据驱动的设计验证方法（A/B 实验、埋点分析），用数据支撑设计决策。</li>
+          <li class="ph">【再补 1–2 条最能代表你字节产出的项目，按「问题→决策→结果」写，尽量带数据】</li>
+        </ul>
+      </article>
+
+      <!-- 万科 -->
+      <article class="job">
+        <div class="job__row">
+          <div class="job__co">万科 · 科技 BG · 能力中心 · <span class="role">体验设计师</span></div>
+          <div class="job__date">2021.05 – <span class="ph">【20xx.0x】</span></div>
+        </div>
+        <p class="job__note">以资源中心角色支持集团多 BG / BU 业务线的设计需求，重点项目：</p>
+        <ul class="bullets">
+          <li><b>Bimgo 参数化建模软件（B 端客户端）</b>：独立负责方案图纸模块及底层依赖能力 0→1 搭建，输出基础设计规范与组件；把控模块视觉框架，以模块负责人身份带领 2 名合作方，按节点保质保量交付。</li>
+          <li><b>协同工具「微 V 10.0」</b>：负责集团内部唯一办公协同平台的品牌升级与整体规范优化，面向全集团 20w+ 用户；更新组件库并沉淀可供其他设计师沿用的设计规范。</li>
+          <li><b>公司官网「万翼科技 2.0」</b>：独立负责官网 0→1 改版上线，全程参与从需求输入到落地实现；引入 Hotjar 收集 NPS 体验指标，提升官网对外形象与用户满意度。</li>
+        </ul>
+      </article>
+
+      <!-- 铭铝医疗 -->
+      <article class="job">
+        <div class="job__row">
+          <div class="job__co">铭铝医疗科技 · <span class="role">UI 设计师</span></div>
+          <div class="job__date">2019.05 – 2021.05</div>
+        </div>
+        <ul class="bullets">
+          <li><b>C 端</b>：负责认知训练网页端与小程序 2.0 版本的交互与视觉改版及落地。</li>
+          <li><b>B 端</b>：主导「远程影像诊断平台」（含 RIS &amp; PACS Viewer）Web 端与小程序 0→1 设计，已落地西南 100+ 医院，日均数据量 500+；负责「牙医宝」口腔医疗 SaaS（含 CRM、WMS）0→1 的交互与视觉设计。</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- 核心能力 -->
+    <section class="section">
+      <h2 class="section__title">核心能力</h2>
+      <div class="skills">
+        <div class="skill-row"><span class="skill__k">体验设计 </span><span class="skill__v">复杂业务链路 · 信息架构 · 交互设计 · 多端一致性</span></div>
+        <div class="skill-row"><span class="skill__k">设计系统 </span><span class="skill__v">组件库与 Design Token · 设计-研发协作 · 规范治理</span></div>
+        <div class="skill-row"><span class="skill__k">业务与数据 </span><span class="skill__v">商业画布 · 用户研究 · 可用性测试 · 竞品分析 · NPS 度量</span></div>
+        <div class="skill-row"><span class="skill__k">方法与工具 </span><span class="skill__v">Figma（变量 / 组件化）· Sketch · Principle / AE · C4D · Xmind · Hotjar</span></div>
+      </div>
+    </section>
+
+    <!-- 设计理念 -->
+    <section class="section">
+      <h2 class="section__title">设计理念</h2>
+      <ul class="bullets">
+        <li>先理解本质再动手：每个需求背后都有一群人的诉求，先想清楚"为什么出现、要解决什么、对全局的影响"，再谈方案。</li>
+        <li>成熟的产品设计思维：独立负责过多个平台级项目，既能从 0→1 搭框架，也能在迭代中按阶段调整、量化评估。</li>
+        <li>持续学习与复盘：横跨多行业沉淀出广度，习惯一边实践一边总结可复用的工作方法；在 AI 时代用工具做竞品分析、方案变体与批量产出，把时间留给判断。</li>
+      </ul>
+    </section>
+
+    <!-- 教育 & 其他 -->
+    <section class="section">
+      <h2 class="section__title">教育背景</h2>
+      <div class="line-item">
+        <span><b>湖南工商大学</b> · 艺术设计学院 · 视觉传达设计 · 本科</span>
+        <span class="muted ph">【20xx – 20xx】</span>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      window.print();
+    });
+  </script>
+</body>
+</html>

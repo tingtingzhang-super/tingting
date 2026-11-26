@@ -1,0 +1,182 @@
+/* =============================================================================
+ *  简历样式 · Resume Styles
+ *  - 屏幕上像一张干净的纸；打印 / 导出 PDF 时自动优化为 A4。
+ *  - 想换强调色：改 --accent。想换字号：改 --fs-base。
+ * ========================================================================== */
+
+:root {
+  --paper:   #ffffff;
+  --ink:     #1c1b18;
+  --ink-soft:#5d594f;
+  --ink-mute:#8b8678;
+  --line:    #e4e0d8;
+  --accent:  #b1502f;
+  --bg:      #ece9e3;   /* 屏幕上纸张周围的底色 */
+
+  --serif: "Fraunces", "Songti SC", "Noto Serif SC", Georgia, serif;
+  --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+           "Microsoft YaHei", "Noto Sans SC", Roboto, Helvetica, Arial, sans-serif;
+
+  --fs-base: 13px;
+  --maxw: 820px;
+}
+
+* , *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--fs-base);
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+
+/* —— 顶部操作条（打印时隐藏）—— */
+.toolbar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 14px;
+  max-width: var(--maxw); margin: 0 auto; padding: 14px 8px;
+}
+.toolbar__back { color: var(--ink-soft); text-decoration: none; font-size: 0.92rem; }
+.toolbar__back:hover { color: var(--ink); }
+.toolbar__spacer { margin-left: auto; }
+.btn {
+  appearance: none; cursor: pointer;
+  border: 1px solid var(--ink); background: var(--ink); color: #fff;
+  border-radius: 999px; padding: 8px 18px; font: inherit; font-size: 0.9rem;
+  transition: opacity .25s ease;
+}
+.btn:hover { opacity: 0.82; }
+.btn--ghost { background: transparent; color: var(--ink-soft); border-color: var(--line); }
+.btn--ghost:hover { color: var(--ink); border-color: var(--ink-soft); opacity: 1; }
+
+/* —— 纸张 —— */
+.paper {
+  max-width: var(--maxw);
+  margin: 0 auto 48px;
+  background: var(--paper);
+  padding: clamp(28px, 5vw, 56px);
+  box-shadow: 0 10px 40px rgba(0,0,0,.08);
+  border-radius: 2px;
+}
+
+/* —— 抬头 —— */
+.head { display: flex; gap: 20px; align-items: flex-start;
+  padding-bottom: 20px; border-bottom: 2px solid var(--ink); }
+.head__main { flex: 1; min-width: 0; }
+.head__name {
+  margin: 0; font-family: var(--serif); font-weight: 400;
+  font-size: clamp(2rem, 6vw, 2.9rem); line-height: 1; letter-spacing: .01em;
+}
+.head__title {
+  margin: 8px 0 0; color: var(--accent);
+  font-size: 1.02rem; letter-spacing: .04em;
+}
+.head__meta {
+  margin: 12px 0 0; color: var(--ink-soft);
+  font-size: .88rem; display: flex; flex-wrap: wrap; gap: 6px 14px;
+}
+.head__meta span { white-space: nowrap; }
+.head__contact { margin-top: 6px; }
+.head__contact a { color: var(--ink); text-decoration: none; }
+.head__contact a:hover { color: var(--accent); }
+.head__photo {
+  width: 78px; height: 78px; border-radius: 50%; flex: none;
+  object-fit: cover; background: var(--bg);
+  border: 1px solid var(--line);
+}
+
+/* —— 一句话定位 —— */
+.summary {
+  margin: 20px 0 4px; font-size: 1rem; line-height: 1.6; color: var(--ink);
+}
+
+/* —— 区块 —— */
+.section { margin-top: 26px; }
+.section__title {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0 0 14px;
+  font-family: var(--serif); font-weight: 500;
+  font-size: 1.18rem; letter-spacing: .02em; color: var(--ink);
+}
+.section__title::before {
+  content: ""; width: 18px; height: 2px; background: var(--accent); flex: none;
+}
+
+/* —— 工作经历条目 —— */
+.job { margin-bottom: 18px; break-inside: avoid; }
+.job:last-child { margin-bottom: 0; }
+.job__row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  gap: 12px; flex-wrap: wrap;
+}
+.job__co { font-weight: 600; font-size: 1rem; }
+.job__co .role { color: var(--accent); font-weight: 500; }
+.job__date { color: var(--ink-mute); font-size: .85rem; white-space: nowrap; }
+.job__note { margin: 3px 0 8px; color: var(--ink-soft); font-size: .9rem; }
+.job__sub {
+  margin: 10px 0 4px; font-size: .82rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--accent);
+}
+
+ul.bullets { margin: 6px 0 0; padding-left: 0; list-style: none; }
+ul.bullets li {
+  position: relative; padding-left: 16px; margin: 0 0 5px;
+}
+ul.bullets li::before {
+  content: ""; position: absolute; left: 2px; top: .72em;
+  width: 4px; height: 4px; border-radius: 50%; background: var(--accent);
+}
+.ph { /* 待填占位 */ color: #b8462a; background: #f7e7e0; padding: 0 3px; border-radius: 2px; }
+
+/* —— 能力网格 —— */
+.skills { display: grid; gap: 8px 28px; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .skills { grid-template-columns: 1fr 1fr; } }
+.skill__k {
+  font-weight: 600; color: var(--ink);
+}
+.skill__v { color: var(--ink-soft); }
+.skill-row { break-inside: avoid; }
+
+/* —— 教育 / 其他 行 —— */
+.line-item { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.line-item .muted { color: var(--ink-mute); }
+
+/* —— 小屏 —— */
+@media (max-width: 480px) {
+  .head { flex-direction: column-reverse; align-items: flex-start; }
+}
+
+/* =============================================================================
+ *  打印 / 导出 PDF
+ * ========================================================================== */
+@page { size: A4; margin: 12mm; }
+
+@media print {
+  :root { --fs-base: 10px; }
+  html, body { background: #fff; line-height: 1.5; }
+  .no-print { display: none !important; }
+  .paper {
+    max-width: none; margin: 0; padding: 0;
+    box-shadow: none; border-radius: 0;
+  }
+  /* 收紧排版，争取 2 页内 */
+  .head { padding-bottom: 12px; }
+  .head__name { font-size: 2.2rem; }
+  .head__photo { width: 64px; height: 64px; }
+  .summary { margin: 12px 0 2px; font-size: .95rem; line-height: 1.45; }
+  .section { margin-top: 15px; }
+  .section__title { font-size: 1.04rem; margin-bottom: 8px; }
+  .job { margin-bottom: 11px; }
+  .job__sub { margin: 6px 0 2px; }
+  .job__note { margin: 2px 0 6px; }
+  ul.bullets li { margin-bottom: 3px; }
+  /* 强制保留强调色 */
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .section, .job, .skill-row { break-inside: avoid; }
+  .section__title { break-after: avoid; }
+  a { text-decoration: none; color: inherit; }
+}

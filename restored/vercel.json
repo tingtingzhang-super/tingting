@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/minimal",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/minimal/",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
